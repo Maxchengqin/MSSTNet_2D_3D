@@ -1,0 +1,16 @@
+for example
+
+ntu60-xsub
+
+train
+CUDA_VISIBLE_DEVICES=0,1,2,3 python main_2D.py ntu60 joint /data/cq/ntu_3dsk_pro_dict/ntu60-xview --gd 20 --lr 0.01 --lr_steps 25 30 35 --epochs 40 -b 64  --dropout 0.9 --model_name ntu60_xview_msst_3dsk
+test
+CUDA_VISIBLE_DEVICES=0 python test_2D.py ntu60 joint /data/cq/ntu_3dsk_pro_dict/ntu60-xview 2022061516_ntu60_xview_msst_3dsk_joint_model_best.pth.tar --batchsize 64 --save_scores ntu60_xview_3dsk_msst_joint
+
+
+train
+CUDA_VISIBLE_DEVICES=0,1,2,3 python main_2D.py ntu60 bone /data/cq/ntu_3dsk_pro_dict/ntu60-xview --gd 20 --lr 0.01 --lr_steps 25 30 35 --epochs 40 -b 64  --dropout 0.9 --model_name ntu60_xview_msst_3dsk
+test
+CUDA_VISIBLE_DEVICES=0 python test_2D.py ntu60 bone /data/cq/ntu_3dsk_pro_dict/ntu60-xview 2022061516_ntu60_xview_msst_3dsk_bone_model_best.pth.tar --batchsize 64 --save_scores ntu60_xview_3dsk_msst_bone
+
+
